@@ -62,7 +62,7 @@ public class CampaignEntity {
                 return Optional.of(new Money(9000));
             }
             default -> {
-                throw new RuntimeException("");
+                throw new RuntimeException("キャッシュバック特典が特定できない");
             }
         }
     }
