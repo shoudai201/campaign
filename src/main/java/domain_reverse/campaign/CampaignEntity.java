@@ -51,7 +51,7 @@ public class CampaignEntity {
         if(engagementEntity.equals(this.targetEngagementId)){
             throw new RuntimeException("特典と契約が不整合");
         }
-        
+
         if(!engagementEntity.isEngaged()){
             return  Optional.empty();
         }
@@ -69,5 +69,12 @@ public class CampaignEntity {
                 throw new RuntimeException("キャッシュバック特典が特定できない");
             }
         }
+    }
+    //試しに作った
+    public CampaignEntity reflect(EngagementEntity engagementEntity){
+        if(!engagementEntity.isEngaged()){
+            return this.cancel();
+        }
+        return this;
     }
 }
