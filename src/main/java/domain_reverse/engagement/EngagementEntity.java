@@ -23,6 +23,10 @@ public class EngagementEntity {
         this.engagementStartDate = engagementStartDate;
     }
 
+    public boolean equals(EngagementID engagementID){
+        return this.engagementID.equals(engagementID);
+    }
+
     public EngagementEntity terminated(){
         return new EngagementEntity(
                 this.engagementID,
