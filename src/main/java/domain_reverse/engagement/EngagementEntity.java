@@ -14,8 +14,6 @@ public class EngagementEntity {
 
     private final EngagementStartDate engagementStartDate;
 
-    private final CampaignEntity grantedCampaignEntity;
-
     public EngagementEntity(EngagementID engagementID,
                             EngagementStatus engagementStatus,
                             EngagementStartDate engagementStartDate,
@@ -23,7 +21,6 @@ public class EngagementEntity {
         this.engagementID= engagementID;
         this.engagementStatus = engagementStatus;
         this.engagementStartDate = engagementStartDate;
-        this.grantedCampaignEntity = campaignEntity;
     }
 
     public EngagementEntity terminated(){
@@ -31,7 +28,6 @@ public class EngagementEntity {
                 this.engagementID,
                 engagementStatus.TERMINATED,
                 this.engagementStartDate,
-                this.grantedCampaignEntity.cancel()
         );
     }
 
