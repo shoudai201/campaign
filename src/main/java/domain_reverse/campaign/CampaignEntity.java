@@ -72,6 +72,9 @@ public class CampaignEntity {
     }
     //試しに作った
     public CampaignEntity reflect(EngagementEntity engagementEntity){
+        if(engagementEntity.equals(this.targetEngagementId)){
+            throw new RuntimeException("特典と契約が不整合");
+        }
         if(!engagementEntity.isEngaged()){
             return this.cancel();
         }
