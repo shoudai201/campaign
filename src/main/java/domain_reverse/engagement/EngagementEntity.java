@@ -16,8 +16,8 @@ public class EngagementEntity {
 
     public EngagementEntity(EngagementID engagementID,
                             EngagementStatus engagementStatus,
-                            EngagementStartDate engagementStartDate,
-                            CampaignEntity campaignEntity) {
+                            EngagementStartDate engagementStartDate
+    ) {
         this.engagementID= engagementID;
         this.engagementStatus = engagementStatus;
         this.engagementStartDate = engagementStartDate;
@@ -31,7 +31,7 @@ public class EngagementEntity {
         return new EngagementEntity(
                 this.engagementID,
                 engagementStatus.TERMINATED,
-                this.engagementStartDate,
+                this.engagementStartDate
         );
     }
 
