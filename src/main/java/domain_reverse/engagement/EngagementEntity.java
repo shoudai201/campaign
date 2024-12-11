@@ -1,5 +1,6 @@
 package domain_reverse.engagement;
 
+import domain.campaign.CampaignEntity;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -13,19 +14,24 @@ public class EngagementEntity {
 
     private final EngagementStartDate engagementStartDate;
 
+    private final CampaignEntity grantedCampaignEntity;
+
     public EngagementEntity(EngagementID engagementID,
                             EngagementStatus engagementStatus,
-                            EngagementStartDate engagementStartDate) {
+                            EngagementStartDate engagementStartDate,
+                            CampaignEntity campaignEntity) {
         this.engagementID= engagementID;
         this.engagementStatus = engagementStatus;
         this.engagementStartDate = engagementStartDate;
+        this.grantedCampaignEntity = campaignEntity;
     }
 
     public EngagementEntity terminated(){
         return new EngagementEntity(
                 this.engagementID,
                 engagementStatus.TERMINATED,
-                this.engagementStartDate
+                this.engagementStartDate,
+                this.grantedCampaignEntity.cancel()
         );
     }
 
