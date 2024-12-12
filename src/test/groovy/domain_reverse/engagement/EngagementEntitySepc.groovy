@@ -14,7 +14,7 @@ class EngagementEntitySpec extends spock.lang.Specification {
     private final static EngagementEntity ENGAGEMENT_ENTITY = new EngagementEntity(
             new EngagementID("1"),
             EngagementStatus.ENGAGED,
-            new EngagementStartDate(LocalDate.of(2024,12,1))
+            new EngagementStartDate(LocalDate.of(2024, 12, 1))
     );
 
     private final static CampaignEntity CAMPAIGN_ENTITY = new CampaignEntity(
@@ -24,31 +24,46 @@ class EngagementEntitySpec extends spock.lang.Specification {
             ENGAGEMENT_ENTITY
     );
 
-    def "equalsId_#usecase"(){
+    def "equalsId_#usecase"() {
 
         expect:
         expected == ENGAGEMENT_ENTITY.equalsId(engagementId);
 
         where:
-        usecase | engagementId || expected
-        "等しい" | new EngagementID("1") || true
+        usecase      | engagementId          || expected
+        "等しい"     | new EngagementID("1") || true
         "等しくない" | new EngagementID("2") || false
 
     }
 
-    def "grant_エラー"(){
+    def "grant_エラー"() {
 
         when:
         CAMPAIGN_ENTITY.grant(new EngagementEntity(
                 new EngagementID("2"),
                 EngagementStatus.ENGAGED,
-                new EngagementStartDate(LocalDate.of(2024,12,1))
+                new EngagementStartDate(LocalDate.of(2024, 12, 1))
         )
         )
 
         then:
         def e = thrown(RuntimeException)
         e.getMessage() == "特典と契約が不整合"
+    }
+
+    def "grant_#usecase"() {
+
+        expect:
+        expected == CAMPAIGN_ENTITY.grant(new EngagementEntity(
+                new EngagementID("1"),
+                engagementStatus,
+                new EngagementStartDate(engagementStartDate)
+        )
+        )
+
+        where:
+        usecase        | engagementStatus            | engagementStartDate      || expected
+        "契約が条件外" | EngagementStatus.TERMINATED | LocalDate.of(2022, 11, 1) | Optional.empty()
 
     }
 }
