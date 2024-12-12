@@ -1,6 +1,5 @@
 package domain_reverse.engagement;
 
-import domain.campaign.CampaignEntity;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -23,7 +22,7 @@ public class EngagementEntity {
         this.engagementStartDate = engagementStartDate;
     }
 
-    public boolean equals(EngagementID engagementID){
+    public boolean equalsId(EngagementID engagementID){
         return this.engagementID.equals(engagementID);
     }
 

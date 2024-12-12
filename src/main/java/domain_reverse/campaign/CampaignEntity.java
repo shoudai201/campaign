@@ -48,7 +48,7 @@ public class CampaignEntity {
     }
 
     public Optional<CashBack> grant(EngagementEntity engagementEntity){
-        if(engagementEntity.equals(this.targetEngagementId)){
+        if(!engagementEntity.equalsId(this.targetEngagementId)){
             throw new RuntimeException("特典と契約が不整合");
         }
 
@@ -72,7 +72,7 @@ public class CampaignEntity {
     }
     //試しに作った
     public CampaignEntity reflect(EngagementEntity engagementEntity){
-        if(engagementEntity.equals(this.targetEngagementId)){
+        if(engagementEntity.equalsId(this.targetEngagementId)){
             throw new RuntimeException("特典と契約が不整合");
         }
         if(!engagementEntity.isEngaged()){
