@@ -13,29 +13,18 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @NonNull
-public class CampaignEntity {
+public interface CampaignEntity {
 
-    private final CampaignId campaignId;
+    final CampaignId campaignId;
 
-    private final CampaignStatus campaignStatus;
+    final CampaignStatus campaignStatus;
 
-    private final CampaignType campaignType;
+    final CampaignType campaignType;
 
-    private final CampaignGrantScheduledDate campaignGrantScheduledDate;
+    final CampaignGrantScheduledDate campaignGrantScheduledDate;
 
-    private final EngagementID targetEngagementId;
+    final EngagementID targetEngagementId;
 
-    public CampaignEntity(CampaignId campaignId,
-                          CampaignStatus campaignStatus,
-                          CampaignType campaignType,
-                          EngagementEntity engagementEntity) {
-        this.campaignId = campaignId;
-        this.campaignStatus = campaignStatus;
-        this.campaignType = campaignType;
-        this.campaignGrantScheduledDate = new CampaignGrantScheduledDate(engagementEntity.getEngagementStartDate());
-        this.targetEngagementId = engagementEntity.getEngagementID();
-
-    }
 
     public CampaignEntity cancel(){
         return new CampaignEntity(
