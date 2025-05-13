@@ -14,4 +14,5 @@ public record UseTime(LocalTime value) {
     public boolean isEqualsAndAfter(LocalTime localTime){
         return this.value.equals(localTime) || this.value.isAfter(localTime);
     }
+
 }
