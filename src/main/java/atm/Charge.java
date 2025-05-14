@@ -6,5 +6,6 @@ package atm;
  */
 
 public record Charge(int value) {
-    
+
+
 }
