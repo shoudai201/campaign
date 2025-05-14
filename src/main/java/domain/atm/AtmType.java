@@ -1,4 +1,4 @@
-package atm;
+package domain.atm;
 
 import lombok.AllArgsConstructor;
 

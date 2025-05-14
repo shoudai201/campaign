@@ -1,4 +1,6 @@
-package atm
+package domain.atm
+
+import domain.atm.UseTime
 
 import java.time.LocalTime
 import spock.lang.Specification

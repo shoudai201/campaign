@@ -1,7 +1,6 @@
-package atm;
+package domain.atm;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /**
  * 利用日時

@@ -1,4 +1,7 @@
-package atm
+package domain.atm
+
+import domain.atm.UseDateTime
+import domain.atm.UseTime
 
 import java.time.DayOfWeek
 import java.time.LocalDateTime
