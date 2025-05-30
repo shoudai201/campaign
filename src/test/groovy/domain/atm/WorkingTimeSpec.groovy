@@ -21,6 +21,9 @@ class WorkingTimeSpec extends Specification {
         WorkingTime.銀行ATM       | LocalTime.of(8, 45, 0)  | true
         WorkingTime.銀行ATM       | LocalTime.of(21,0 , 0)  | true
         WorkingTime.銀行ATM       | LocalTime.of(21, 0, 1)  | true
-
+        WorkingTime.コンビニATM   | LocalTime.of(0, 0, 0)   | true
+        WorkingTime.コンビニATM   | LocalTime.of(23, 59, 59) | true
+        WorkingTime.コンビニATM   | LocalTime.of(0, 0, 1)   | true
+        WorkingTime.コンビニATM   | LocalTime.of(23, 59, 58) | true
     }
 }
