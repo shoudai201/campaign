@@ -5,7 +5,7 @@ package domain.atm;
  * @param value
  */
 
-public record Charge(int value) {
+public record Fee(int value) {
 
 
 }
