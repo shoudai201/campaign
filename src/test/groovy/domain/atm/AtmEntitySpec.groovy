@@ -7,9 +7,11 @@ import java.time.LocalDateTime
 @Unroll
 class AtmEntitySpec extends Specification {
 
+    private final atmFactory = new AtmFactory();
+
     def "chargeFee_#usecase"() {
         setup:
-        AtmEntity atmEntity = new AtmEntity(atmType)
+        AtmEntity atmEntity = atmFactory.createAtmEntity(atmType);
         UseDateTime useDateTime = new UseDateTime(dateTime)
 
         when:
