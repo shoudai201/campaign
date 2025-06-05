@@ -1,5 +1,7 @@
 package domain.atm;
 
+import lombok.AllArgsConstructor;
+
 public class AtmEntity {
 
     private final AtmType atmType;
