@@ -9,7 +9,7 @@ class AtmEntitySpec extends Specification {
 
     def "chargeFee_#usecase"() {
         setup:
-        AtmEntity atmEntity = new AtmEntity(atmType)
+        AtmEntity atmEntity = new AtmFactory().create(atmType)
         UseDateTime useDateTime = new UseDateTime(dateTime)
 
         when:
